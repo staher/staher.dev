@@ -57,11 +57,14 @@ TS/TSX + Tailwind classes + assets
    (static HTML/JS/CSS/assets)
           |
           v
-      Hosting (CDN)
+  Hosting (CDN)
           |
           v
        Browser
 ```
+
+## Decision log
+- 2024-11-24: Routing → multi-page with `react-router-dom` for distinct URLs and shared layout shell; tradeoff is slightly more JS than a single-page anchor approach but better URL semantics.
 ## Update hook
 - For every implementation task, note any new findings or changes (e.g., routing choice, hosting decision, styling adjustments) here under the relevant section with date and rationale.
 - When a decision changes, add a short entry under the affected bullet (e.g., “2024-11-23: Chose single-page anchors to keep bundle small; tradeoff is fewer distinct URLs.”).
