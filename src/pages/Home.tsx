@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PageHead from '../components/PageHead'
 
 const highlights = [
   {
@@ -16,6 +17,10 @@ const highlights = [
 function Home() {
   return (
     <div className="flex flex-col gap-12">
+      <PageHead
+        title="Home"
+        description="Taher’s personal site: building thoughtful, fast, minimal web experiences with TypeScript and React."
+      />
       <section className="flex flex-col gap-6">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted">
           Staher.dev

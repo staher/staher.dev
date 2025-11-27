@@ -1,3 +1,5 @@
+import PageHead from '../components/PageHead'
+
 const projects = [
   {
     name: 'Project One',
@@ -16,6 +18,10 @@ const projects = [
 function Projects() {
   return (
     <div className="flex flex-col gap-6">
+      <PageHead
+        title="Projects"
+        description="Selected projects with outcomes and stacks used. More case studies coming soon."
+      />
       <div>
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted">
           Projects

@@ -1,6 +1,12 @@
+import PageHead from '../components/PageHead'
+
 function About() {
   return (
     <div className="flex flex-col gap-6">
+      <PageHead
+        title="About"
+        description="Learn about Taher’s background, focus areas, and skills in building minimal, performant web experiences."
+      />
       <div>
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted">
           About

@@ -1,8 +1,13 @@
 import { links } from '../data/nav'
+import PageHead from '../components/PageHead'
 
 function Contact() {
   return (
     <div className="flex flex-col gap-6">
+      <PageHead
+        title="Contact"
+        description="Get in touch with Taher via email or social links. Collaboration and conversations welcome."
+      />
       <div>
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted">
           Contact
