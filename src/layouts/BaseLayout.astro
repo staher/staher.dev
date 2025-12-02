@@ -1,0 +1,70 @@
+---
+import { contactLinks, navItems, siteMeta } from '../data/site'
+import '../styles/global.css'
+
+const { title = siteMeta.title, description = siteMeta.description } = Astro.props
+const fullTitle = title ? `${title} | ${siteMeta.title}` : siteMeta.title
+const year = new Date().getFullYear()
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{fullTitle}</title>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <div class="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-10 sm:px-6 lg:px-8">
+      <header class="flex flex-col gap-6 pb-10 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <a href="/" class="text-xl font-semibold tracking-tight">
+            {siteMeta.title}
+          </a>
+          <p class="text-sm text-slate-600">Building thoughtful, minimal web experiences.</p>
+        </div>
+        <nav class="flex flex-wrap gap-3 text-sm font-semibold text-slate-600">
+          {navItems.map((item) => {
+            const isActive =
+              item.href === '/'
+                ? Astro.url.pathname === '/'
+                : Astro.url.pathname.startsWith(item.href)
+
+            return (
+              <a
+                href={item.href}
+                class={`rounded-full border border-slate-200 px-3 py-2 transition hover:-translate-y-[1px] hover:bg-white hover:shadow-sm ${
+                  isActive ? 'bg-white text-slate-900 shadow-sm' : ''
+                }`}
+              >
+                {item.label}
+              </a>
+            )
+          })}
+        </nav>
+      </header>
+
+      <main class="flex-1 pb-16">
+        <slot />
+      </main>
+
+      <footer class="border-t border-slate-200 pt-6 text-sm text-slate-600">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <span>© {year} {siteMeta.title}</span>
+          <div class="flex flex-wrap gap-3">
+            {contactLinks.map((link) => (
+              <a
+                href={link.href}
+                class="rounded-full border border-slate-200 px-3 py-2 transition hover:-translate-y-[1px] hover:bg-white hover:shadow-sm"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

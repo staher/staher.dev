@@ -4,11 +4,11 @@ Short tracker for implementation work. Update as tasks complete or priorities ch
 
 ## Now / next
 - For each task, capture any decision changes in `docs/design.md` (date + rationale).
-- Initialize project scaffold (Vite React+TS).
-- Add Tailwind setup and base design tokens (colors, spacing, typography).
-- Build layout shell (header/footer, container) and core sections: Home, About, Projects, Contact.
+- Migrate to Astro (static-first) with Tailwind; add React islands only where needed.
+- Recreate layout shell and pages (Home, About, Projects, Contact) in Astro.
+- Verify build (`npm run build`) and adjust README accordingly.
+- Decide on theming approach (Tailwind tokens vs DaisyUI vs Radix) and add dark mode plan.
 - Add data sources (projects/contact/résumé link) and wire to UI.
-- Add lint/format/typecheck scripts; ensure `npm run build` works.
 - Create favicon + social preview placeholder; set basic meta defaults.
 
 ## Upcoming

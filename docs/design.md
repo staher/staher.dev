@@ -64,7 +64,8 @@ TS/TSX + Tailwind classes + assets
 ```
 
 ## Decision log
-- 2024-11-24: Routing → multi-page with `react-router-dom` for distinct URLs and shared layout shell; tradeoff is slightly more JS than a single-page anchor approach but better URL semantics.
+- 2024-11-24: Framework → moved to Astro for static-first rendering with optional React islands; tradeoff is learning Astro’s file-based routing/content model but reduced shipped JS for static pages.
+- 2024-11-24: Routing → multi-page site structure (now file-based in Astro) for distinct URLs and shared layout shell.
 ## Update hook
 - For every implementation task, note any new findings or changes (e.g., routing choice, hosting decision, styling adjustments) here under the relevant section with date and rationale.
 - When a decision changes, add a short entry under the affected bullet (e.g., “2024-11-23: Chose single-page anchors to keep bundle small; tradeoff is fewer distinct URLs.”).

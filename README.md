@@ -1,13 +1,18 @@
 # staher.dev
-Personal website built with Vite, React, TypeScript, and Tailwind CSS.
+Personal site built with Astro, Tailwind, and React islands (for optional interactivity).
 
-## Getting started
+## Commands
+
 ```bash
 npm install
-npm run dev
+npm run dev      # start dev server
+npm run build    # production build to dist/
+npm run preview  # preview production build
 ```
 
-## Scripts
-- `npm run dev` – start the dev server.
-- `npm run build` – production build to `dist/`.
-- `npm run preview` – preview the production build.
+## Structure
+- `src/pages`: Astro pages (home, about, projects, contact, 404).
+- `src/layouts`: shared layout shell (header/footer/meta).
+- `src/data`: navigation/contact/projects data.
+- `public`: static assets (favicon, etc.).
+- `docs`: planning/design/task notes.

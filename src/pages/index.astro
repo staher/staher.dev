@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { siteMeta } from '../data/site'
+---
+
+<BaseLayout title="Home" description={siteMeta.description}>
+  <div class="flex flex-col gap-12">
+    <section class="flex flex-col gap-6">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
+        {siteMeta.title}
+      </p>
+      <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+        Building thoughtful products with clear, fast, minimal web UIs.
+      </h1>
+      <p class="max-w-3xl text-lg text-slate-600">
+        I’m Taher, a developer focused on simple, reliable experiences. This site shares my
+        work, background, and ways to reach me.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:translate-y-[-1px] hover:shadow-md"
+          href="mailto:hello@staher.dev"
+        >
+          Email me
+        </a>
+        <a
+          class="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:-translate-y-[1px] hover:bg-white hover:shadow-sm"
+          href="/projects"
+        >
+          View projects
+        </a>
+      </div>
+    </section>
+
+    <section class="grid gap-6 sm:grid-cols-2">
+      {[
+        {
+          title: 'About',
+          copy: 'Building purposeful, minimal sites that stay fast and accessible.',
+          href: '/about',
+        },
+        {
+          title: 'Projects',
+          copy: 'Selected work with short outcomes. More case studies coming soon.',
+          href: '/projects',
+        },
+      ].map((item) => (
+        <a
+          href={item.href}
+          class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.08)] transition hover:-translate-y-[2px] hover:shadow-lg"
+        >
+          <p class="text-sm font-semibold text-slate-500">{item.title}</p>
+          <h2 class="mt-3 text-2xl font-semibold text-slate-900">{item.title}</h2>
+          <p class="mt-3 text-base text-slate-600">{item.copy}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition group-hover:translate-x-[2px]">
+            Go to {item.title}
+            <span aria-hidden>→</span>
+          </span>
+        </a>
+      ))}
+    </section>
+  </div>
+</BaseLayout>
