@@ -19,11 +19,11 @@ Out of scope for MVP
 - Dark mode (planned follow-up).
 
 ## Technical stack
-- Build: Vite + React + TypeScript (pure static output in `dist/`).
-- Styling: Tailwind CSS with a small design token setup.
-- Routing: either single-page with anchored sections or `react-router-dom` if multi-page URLs are desired (decide during implementation).
-- Tooling: ESLint + Prettier; minimal dependencies otherwise.
-- Content: hardcoded JSON/TS objects for projects/links; copy in TS/TSX for now (can move to Markdown/MDX later if needed).
+- Build: Astro (static-first) with TypeScript; React islands only where interactivity is needed.
+- Styling: Tailwind CSS (v4) with a small design token setup; optional DaisyUI/Radix under evaluation.
+- Routing: file-based Astro pages (distinct URLs per page); 404 route included.
+- Tooling: ESLint (Astro defaults), npm scripts; minimal dependencies otherwise.
+- Content: TS data objects for projects/links; copy in Astro pages for now (can move to MD/MDX later).
 
 ## Non-functional priorities
 - Performance: pre-rendered pages, minimal JS, optimized image sizes, no heavy dependencies.
@@ -39,10 +39,10 @@ Out of scope for MVP
 - Contact: email, LinkedIn/GitHub, résumé download.
 
 ## Delivery phases (proposed)
-1) Scaffold: Vite React+TS project, Tailwind config, base layout shell (header/footer), placeholder content.
-2) Content + layout: implement sections, wire data objects for projects/links, responsive layout, typography scale.
-3) Polish: SEO/meta helper, favicon/OG image, accessibility pass, basic lint/format scripts.
-4) Follow-ups: dark mode theme switch, hosting setup + sitemap/robots, optional refactors (routing, content pipeline).
+1) Scaffold: Astro project with Tailwind; base layout shell (header/footer/meta), placeholder content.
+2) Content + layout: implement Astro pages (Home, About, Projects, Contact), wire data objects, responsive layout, typography scale.
+3) Polish: SEO/meta defaults, favicon/OG image, accessibility pass, basic lint/format scripts.
+4) Follow-ups: dark mode theme switch, hosting setup + sitemap/robots, optional content pipeline (MD/MDX).
 
 ## Open decisions / notes
 - Hosting: choose later (GitHub Pages, Netlify, Vercel all work for static output).
@@ -51,7 +51,7 @@ Out of scope for MVP
 - Dark mode: defer; plan to use CSS variables so themes are easy to add.
 
 ## Decision log (current)
-- Stack: Vite + React + TypeScript.
-- Styling: Tailwind CSS.
+- Stack: Astro + TypeScript; React islands as needed.
+- Styling: Tailwind CSS (v4).
 - Dark mode: out of MVP; treat as first follow-up.
 - Blog/analytics: not in MVP.
