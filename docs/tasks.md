@@ -7,8 +7,8 @@ Short tracker for implementation work. Update as tasks complete or priorities ch
 - Decide theming approach (Tailwind tokens vs DaisyUI vs Radix) and plan dark mode implementation.
 - Refine typography/colors and choose final fonts.
 - Add real data sources (projects/contact/résumé link) and wire to UI.
-- Create favicon + social preview placeholder; set basic meta defaults.
-- Expand SEO defaults if needed (canonical URL, OG/Twitter defaults).
+- Create favicon + social preview image and set basic meta defaults.
+- Expand SEO defaults (canonical URL, OG/Twitter).
 
 ## Upcoming
 - Responsive tuning and accessibility pass (focus states, contrast, reduced motion).
