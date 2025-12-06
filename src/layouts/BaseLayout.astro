@@ -1,5 +1,6 @@
 ---
 import { contactLinks, navItems, siteMeta } from '../data/site'
+import ThemeToggle from '../components/ThemeToggle.tsx'
 import '../styles/global.css'
 
 const { title = siteMeta.title, description = siteMeta.description } = Astro.props
@@ -8,7 +9,7 @@ const year = new Date().getFullYear()
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,25 +30,28 @@ const year = new Date().getFullYear()
             </p>
           </div>
           <div class="flex-none">
-            <nav class="flex flex-wrap gap-2 text-sm font-semibold text-base-content/80">
-              {navItems.map((item) => {
-                const isActive =
-                  item.href === '/'
-                    ? Astro.url.pathname === '/'
-                    : Astro.url.pathname.startsWith(item.href)
+            <div class="flex items-center gap-3">
+              <nav class="flex flex-wrap gap-2 text-sm font-semibold text-base-content/80">
+                {navItems.map((item) => {
+                  const isActive =
+                    item.href === '/'
+                      ? Astro.url.pathname === '/'
+                      : Astro.url.pathname.startsWith(item.href)
 
-                return (
-                  <a
-                    href={item.href}
-                    class={`btn btn-sm btn-ghost ${
-                      isActive ? 'btn-active text-base-content' : 'text-base-content/70'
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                )
-              })}
-            </nav>
+                  return (
+                    <a
+                      href={item.href}
+                      class={`btn btn-sm btn-ghost ${
+                        isActive ? 'btn-active text-base-content' : 'text-base-content/70'
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  )
+                })}
+              </nav>
+              <ThemeToggle client:load />
+            </div>
           </div>
         </header>
 
