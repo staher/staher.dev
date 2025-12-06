@@ -4,18 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 <BaseLayout title="Page not found" description="The page you requested could not be found.">
   <div class="flex flex-col gap-4">
-    <p class="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">404</p>
-    <h1 class="text-4xl font-semibold tracking-tight text-slate-900">Page not found</h1>
-    <p class="max-w-2xl text-base text-slate-600">
+    <p class="text-sm font-medium uppercase tracking-[0.2em] text-base-content/60">404</p>
+    <h1 class="text-4xl font-bold tracking-tight text-base-content">Page not found</h1>
+    <p class="max-w-2xl text-base text-base-content/70">
       The page you’re looking for doesn’t exist. It might have been moved or the URL could be
       incorrect.
     </p>
-    <a
-      href="/"
-      class="inline-flex w-fit items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:translate-y-[-1px] hover:shadow-md"
-    >
-      Go home
-      <span aria-hidden>→</span>
+    <a href="/" class="btn btn-primary w-fit">
+      Go home →
     </a>
   </div>
 </BaseLayout>

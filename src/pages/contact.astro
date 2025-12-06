@@ -9,9 +9,9 @@ import { contactLinks } from '../data/site'
 >
   <div class="flex flex-col gap-6">
     <div>
-      <p class="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Contact</p>
-      <h1 class="mt-2 text-4xl font-semibold tracking-tight text-slate-900">Say hello</h1>
-      <p class="mt-2 max-w-2xl text-base text-slate-600">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-base-content/60">Contact</p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-base-content">Say hello</h1>
+      <p class="mt-2 max-w-2xl text-base text-base-content/70">
         Want to collaborate or chat? Reach out via email or find me on the platforms below. I’ll add
         a résumé link here soon.
       </p>
@@ -20,7 +20,7 @@ import { contactLinks } from '../data/site'
       {contactLinks.map((link) => (
         <a
           href={link.href}
-          class="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:-translate-y-[1px] hover:bg-white hover:shadow-sm"
+          class="btn btn-outline"
         >
           {link.label}
         </a>

@@ -8,7 +8,7 @@ const year = new Date().getFullYear()
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,55 +16,58 @@ const year = new Date().getFullYear()
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{fullTitle}</title>
   </head>
-  <body class="bg-slate-50 text-slate-900">
-    <div class="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-10 sm:px-6 lg:px-8">
-      <header class="flex flex-col gap-6 pb-10 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <a href="/" class="text-xl font-semibold tracking-tight">
-            {siteMeta.title}
-          </a>
-          <p class="text-sm text-slate-600">Building thoughtful, minimal web experiences.</p>
-        </div>
-        <nav class="flex flex-wrap gap-3 text-sm font-semibold text-slate-600">
-          {navItems.map((item) => {
-            const isActive =
-              item.href === '/'
-                ? Astro.url.pathname === '/'
-                : Astro.url.pathname.startsWith(item.href)
-
-            return (
-              <a
-                href={item.href}
-                class={`rounded-full border border-slate-200 px-3 py-2 transition hover:-translate-y-[1px] hover:bg-white hover:shadow-sm ${
-                  isActive ? 'bg-white text-slate-900 shadow-sm' : ''
-                }`}
-              >
-                {item.label}
-              </a>
-            )
-          })}
-        </nav>
-      </header>
-
-      <main class="flex-1 pb-16">
-        <slot />
-      </main>
-
-      <footer class="border-t border-slate-200 pt-6 text-sm text-slate-600">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {year} {siteMeta.title}</span>
-          <div class="flex flex-wrap gap-3">
-            {contactLinks.map((link) => (
-              <a
-                href={link.href}
-                class="rounded-full border border-slate-200 px-3 py-2 transition hover:-translate-y-[1px] hover:bg-white hover:shadow-sm"
-              >
-                {link.label}
-              </a>
-            ))}
+  <body>
+    <div class="min-h-screen bg-base-200 text-base-content">
+      <div class="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-10 sm:px-6 lg:px-8">
+        <header class="navbar mb-10 rounded-2xl bg-base-100 px-4 shadow-sm">
+          <div class="flex-1">
+            <a href="/" class="text-xl font-semibold tracking-tight">
+              {siteMeta.title}
+            </a>
+            <p class="ml-3 hidden text-sm text-base-content/70 sm:inline">
+              Building thoughtful, minimal web experiences.
+            </p>
           </div>
-        </div>
-      </footer>
+          <div class="flex-none">
+            <nav class="flex flex-wrap gap-2 text-sm font-semibold text-base-content/80">
+              {navItems.map((item) => {
+                const isActive =
+                  item.href === '/'
+                    ? Astro.url.pathname === '/'
+                    : Astro.url.pathname.startsWith(item.href)
+
+                return (
+                  <a
+                    href={item.href}
+                    class={`btn btn-sm btn-ghost ${
+                      isActive ? 'btn-active text-base-content' : 'text-base-content/70'
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                )
+              })}
+            </nav>
+          </div>
+        </header>
+
+        <main class="flex-1 pb-16">
+          <slot />
+        </main>
+
+        <footer class="footer border-t border-base-300 pt-6 text-sm text-base-content/70">
+          <div class="w-full items-center justify-between gap-4 sm:flex">
+            <span>© {year} {siteMeta.title}</span>
+            <div class="flex flex-wrap gap-2">
+              {contactLinks.map((link) => (
+                <a href={link.href} class="btn btn-sm btn-outline">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
   </body>
 </html>

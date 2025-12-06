@@ -15,9 +15,9 @@ Purpose: record choices, rationale, and tradeoffs for stack, architecture, and h
 - Build tool: Astro (uses Vite under the hood)  
   - Why: fast dev/build, static output by default; Vite plugins available if needed.  
   - Tradeoff: some configuration differences vs raw Vite.
-- Styling: Tailwind CSS (v4)  
-  - Why: fast iteration with utility tokens, consistent spacing/typography, tiny runtime.  
-  - Tradeoff: class-heavy markup; mitigated by shared patterns and tokens. Evaluating DaisyUI/Radix for theming convenience.
+- Styling: Tailwind CSS (v3) with DaisyUI  
+  - Why: fast iteration with utility tokens plus DaisyUI’s built-in themes/components for quicker styling and easier future dark mode.  
+  - Tradeoff: DaisyUI adds a small dependency and design language; mitigate by overriding tokens if needed.
 - Routing: Astro file-based pages + 404  
   - Why: distinct URLs per page, zero extra routing code.  
   - Tradeoff: none for static pages; React Router not needed.
@@ -68,7 +68,7 @@ Astro pages + TS data + Tailwind classes (+ optional React islands)
 ## Decision log
 - 2024-11-24: Framework → moved from Vite+React to Astro (static-first, optional React islands) to ship less JS and simplify routing; tradeoff is learning Astro’s model.
 - 2024-11-24: Routing → file-based multi-page (Astro) for distinct URLs and shared layout shell; tradeoff vs anchors is negligible, improves URL semantics.
-- 2024-11-24: Styling → Tailwind v4 via Astro’s plugin; evaluating DaisyUI/Radix for theming convenience vs keeping custom tokens.
+- 2024-11-24: Styling → Tailwind v3 with DaisyUI for built-in themes/components (light now; dark mode later); tradeoff is adopting DaisyUI’s design layer and dependency.
 ## Update hook
 - For every implementation task, note any new findings or changes (e.g., routing choice, hosting decision, styling adjustments) here under the relevant section with date and rationale.
 - When a decision changes, add a short entry under the affected bullet (e.g., “2024-11-23: Chose single-page anchors to keep bundle small; tradeoff is fewer distinct URLs.”).
