@@ -4,25 +4,28 @@ import { siteMeta } from '../data/site'
 ---
 
 <BaseLayout title="Home" description={siteMeta.description}>
-  <div class="flex flex-col gap-12">
-    <section class="flex flex-col gap-6 rounded-2xl bg-base-100 p-8 shadow-lg">
-      <p class="text-sm font-medium uppercase tracking-[0.2em] text-base-content/60">
-        {siteMeta.title}
-      </p>
-      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
-        Building thoughtful products with clear, fast, minimal web UIs.
-      </h1>
-      <p class="max-w-3xl text-lg text-base-content/70">
-        I’m Taher, a developer focused on simple, reliable experiences. This site shares my
-        work, background, and ways to reach me.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <a class="btn btn-primary" href="mailto:hello@staher.dev">
-          Email me
-        </a>
-        <a class="btn btn-outline" href="/projects">
-          View projects
-        </a>
+  <div class="flex flex-col gap-10">
+    <section class="relative overflow-hidden rounded-3xl bg-base-100 p-10 text-center shadow-lg">
+      <div class="hero-ambient pointer-events-none absolute inset-0 opacity-80"></div>
+      <div class="relative flex flex-col items-center gap-5">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-base-content/60">
+          {siteMeta.title}
+        </p>
+        <h1 class="max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+          Building thoughtful products with clear, fast, minimal web UIs.
+        </h1>
+        <p class="max-w-2xl text-lg text-base-content/70">
+          I’m Taher, a developer focused on simple, reliable experiences. This site shares my work,
+          background, and ways to reach me.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a class="btn btn-primary" href="mailto:hello@staher.dev">
+            Email me
+          </a>
+          <a class="btn btn-outline" href="/projects">
+            View projects
+          </a>
+        </div>
       </div>
     </section>
 
@@ -40,7 +43,7 @@ import { siteMeta } from '../data/site'
         },
       ].map((item) => (
         <a href={item.href} class="card bg-base-100 shadow-lg transition hover:-translate-y-1">
-          <div class="card-body">
+          <div class="card-body items-center text-center sm:items-start sm:text-left">
             <p class="text-sm font-semibold text-base-content/60">{item.title}</p>
             <h2 class="card-title">{item.title}</h2>
             <p class="text-base text-base-content/70">{item.copy}</p>

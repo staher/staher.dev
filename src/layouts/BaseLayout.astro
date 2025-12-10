@@ -19,39 +19,41 @@ const year = new Date().getFullYear()
   </head>
   <body>
     <div class="min-h-screen bg-base-200 text-base-content">
-      <div class="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-10 sm:px-6 lg:px-8">
-        <header class="navbar mb-10 rounded-2xl bg-base-100 px-4 shadow-sm">
-          <div class="flex-1">
-            <a href="/" class="text-xl font-semibold tracking-tight">
-              {siteMeta.title}
+      <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-8 sm:px-6 lg:px-10">
+        <header class="mb-8 flex flex-col gap-4 rounded-2xl bg-base-100 p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-3">
+            <a href="/" class="flex items-center gap-2 text-xl font-semibold tracking-tight">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-content font-bold">S</span>
+              <span>{siteMeta.title}</span>
             </a>
-            <p class="ml-3 hidden text-sm text-base-content/70 sm:inline">
-              Building thoughtful, minimal web experiences.
-            </p>
           </div>
-          <div class="flex-none">
-            <div class="flex items-center gap-3">
-              <nav class="flex flex-wrap gap-2 text-sm font-semibold text-base-content/80">
-                {navItems.map((item) => {
-                  const isActive =
-                    item.href === '/'
-                      ? Astro.url.pathname === '/'
-                      : Astro.url.pathname.startsWith(item.href)
+          <nav class="flex flex-wrap justify-center gap-2 text-sm font-semibold text-base-content/80 sm:flex-1">
+            {navItems.map((item) => {
+              const isActive =
+                item.href === '/'
+                  ? Astro.url.pathname === '/'
+                  : Astro.url.pathname.startsWith(item.href)
 
-                  return (
-                    <a
-                      href={item.href}
-                      class={`btn btn-sm btn-ghost ${
-                        isActive ? 'btn-active text-base-content' : 'text-base-content/70'
-                      }`}
-                    >
-                      {item.label}
-                    </a>
-                  )
-                })}
-              </nav>
-              <ThemeToggle client:load />
-            </div>
+              return (
+                <a
+                  href={item.href}
+                  class={`btn btn-sm btn-ghost ${
+                    isActive ? 'btn-active text-base-content' : 'text-base-content/70'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              )
+            })}
+          </nav>
+          <div class="flex items-center gap-2">
+            <label class="input input-sm input-bordered hidden items-center gap-2 sm:flex">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-70" viewBox="0 0 16 16" fill="none">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25 2.5 2.5m-1.25-6.25A5 5 0 1 1 1.5 7.5a5 5 0 0 1 11 0Z"/>
+              </svg>
+              <input type="text" class="grow" placeholder="Search" />
+            </label>
+            <ThemeToggle client:load />
           </div>
         </header>
 
