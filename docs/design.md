@@ -65,6 +65,20 @@ Astro pages + TS data + Tailwind classes (+ optional React islands)
                   Browser
 ```
 
+## Layout options (proposed)
+- Option A: Split hero + featured project  
+  - Header: logo top-left linking home; nav to About/Projects/Contact; right-aligned theme toggle (search optional).  
+  - Hero: left column with name + 1–2 line blurb + CTAs; right column with softly blended background image (swaps on theme).  
+  - Body: featured project spanning width, then project grid; About as two columns (story + highlights); Contact strip; sticky footer with socials/copyright.
+- Option B: Centered column + ambient art  
+  - Header: centered nav under a left logo; theme toggle right; search optional.  
+  - Hero: centered headline/blurb with CTAs; large blended background image behind hero (light/dark variants).  
+  - Body: uniform project cards in a 2–3 column grid; About as timeline/list; Contact as a card; sticky footer.
+- Option C: Sidebar + scroll sections  
+  - Header minimized to logo + theme toggle; nav lives in a left sidebar with home logo; search optional.  
+  - Hero: spans main content with blended background image that swaps per theme; name/blurb and CTAs stacked.  
+  - Body: Projects in asymmetric/masonry grid; About as stacked cards; Contact strip; persistent sticky footer.
+
 ## Decision log
 - 2024-11-24: Framework → moved from Vite+React to Astro (static-first, optional React islands) to ship less JS and simplify routing; tradeoff is learning Astro’s model.
 - 2024-11-24: Routing → file-based multi-page (Astro) for distinct URLs and shared layout shell; tradeoff vs anchors is negligible, improves URL semantics.
