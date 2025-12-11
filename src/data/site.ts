@@ -1,5 +1,5 @@
 export const siteMeta = {
-  title: 'Staher.dev',
+  title: 'Taher',
   description:
     'Taher’s personal site: building thoughtful, fast, minimal web experiences with TypeScript and React.',
 }
