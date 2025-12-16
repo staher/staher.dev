@@ -14,5 +14,5 @@ export const navItems = [
 export const contactLinks = [
   { label: 'Email', href: 'mailto:hello@staher.dev' },
   { label: 'GitHub', href: 'https://github.com/staher' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/tahers' },
 ]
