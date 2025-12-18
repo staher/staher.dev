@@ -1,7 +1,9 @@
 export const siteMeta = {
-  title: 'Taher',
+  title: 'Taher Suterwala',
   description:
     'Taher’s personal site: building thoughtful, fast, minimal web experiences with TypeScript and React.',
+  baseUrl: 'https://staher.dev',
+  socialImage: '/og-image.png',
 }
 
 export const navItems = [

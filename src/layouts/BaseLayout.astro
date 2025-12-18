@@ -4,8 +4,18 @@ import ThemeToggle from '../components/ThemeToggle.tsx'
 import '../styles/global.css'
 
 const { title = siteMeta.title, description = siteMeta.description } = Astro.props
-const fullTitle = title ? `${title} | ${siteMeta.title}` : siteMeta.title
+const pageTitle = title ?? siteMeta.title
+const fullTitle =
+  pageTitle && pageTitle !== siteMeta.title ? `${pageTitle} | ${siteMeta.title}` : siteMeta.title
 const year = new Date().getFullYear()
+const canonicalUrl = siteMeta.baseUrl
+  ? new URL(Astro.url.pathname + Astro.url.search, siteMeta.baseUrl).toString()
+  : undefined
+const socialImage = siteMeta.socialImage?.startsWith('http')
+  ? siteMeta.socialImage
+  : siteMeta.baseUrl && siteMeta.socialImage
+    ? new URL(siteMeta.socialImage, siteMeta.baseUrl).toString()
+    : siteMeta.socialImage ?? '/og-image.png'
 ---
 
 <!doctype html>
@@ -14,7 +24,19 @@ const year = new Date().getFullYear()
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>{fullTitle}</title>
   </head>
   <body>
